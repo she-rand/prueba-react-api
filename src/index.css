@@ -12,13 +12,16 @@ header{
   grid-area: he;
   background-color: black;
   color: white;
-  height: 50px;
+  height: 70px;
   text-align: center;
 }
+
 .filter{
   grid-area: fi;
   background-color: white;
-  text-align: center;
+  text-align: star;
+  height: 60px;
+
 }
 main{
   grid-area: ma;
@@ -26,7 +29,10 @@ main{
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 15px;
+  justify-content: space-around;
+  margin: 8em;
 }
+
 
 footer{
   grid-area: fo;

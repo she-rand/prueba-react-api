@@ -1,66 +1,14 @@
-import { useEffect, useState } from "react"
-import Card from "./components/Card"
+
+import MiApi from "./components/MiApi"
 
 function App() {
-  useEffect(()=>{
-     getData()
-
-  },[])
-const [pokemones, setPokemones]=useState([])
-const [pokemonesInfo, setPokemonesInfo]=useState([])
-const [findPokemon,setFindPokemon]=useState([])
-
-const getDataByUrl=async(name,url)=>{
-  const response=await fetch(url);
-  const data= await response.json();
-  const urlPhoto=data.sprites.other.dream_world.front_default;
-  
-  return {name:name,urlPhoto:urlPhoto};
-  
-
-  
-}
-
-const handleFilter=(e)=>{
-  
-  setFindPokemon(e.target.value)
-  console.log(filtered)
-  console.log(e.target.value)
-
-
- };
-
-
-  const getData=async()=>{
-
-    const response=await fetch('https://pokeapi.co/api/v2/pokemon')
-    const data= await response.json()
-    setPokemones(data.results)
-    const todos=await Promise.all(data.results.map(async (elem)=>{
-      return  getDataByUrl(elem.name,elem.url)
-}))
-  setPokemonesInfo(todos)
-   
-  }
-
-  
-  return (
-    <div>
-      <div className="grid-container">
-      <h1>Pokemones</h1>
-        <div>
-            <input name="filtrar" placeholder="Ingresa un nombre" onChange={handleFilter} value={findPokemon}></input>
-        </div>
-        <main>
-          {pokemonesInfo.filter((elem)=>  elem.name.includes(findPokemon)).map((pokemonInfo)=>{
-            return <Card titulo={pokemonInfo.name} url={pokemonInfo.urlPhoto}/>
-          })}
-        </main>
-      </div>
-      
-    </div>
-   
+  return(
+    <>
+      <MiApi/>
+    </>
+    
   )
+
 }
 
 export default App

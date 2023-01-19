@@ -48,14 +48,27 @@ const handleFilter=(e)=>{
   return (
     <div>
       <div className="grid-container">
-      <h1>Pokemones</h1>
-        <div>
-            <input name="filtrar" placeholder="Ingresa un nombre" onChange={handleFilter} value={findPokemon}></input>
+        <header>
+          <h1 className="m-2">Pokemones</h1>
+        </header>
+        <div className="filter">
+            <input name="filtrar" className="m-3" placeholder="Ingresa un nombre" onChange={handleFilter} value={findPokemon}></input>
         </div>
         <main>
-          {pokemonesInfo.filter((elem)=>  elem.name.includes(findPokemon)).map((pokemonInfo)=>{
+          
+          {pokemonesInfo.sort(function (a, b) {
+            if (a.name > b.name) {
+              return 1;
+            }
+            if (a.name < b.name) {
+              return -1;
+            }
+            // a must be equal to b
+            return 0;
+}).filter((elem)=>  elem.name.toLowerCase().includes(findPokemon.toLowerCase())).map((pokemonInfo)=>{
             return <Card titulo={pokemonInfo.name} url={pokemonInfo.urlPhoto}/>
           })}
+         
         </main>
       </div>
       

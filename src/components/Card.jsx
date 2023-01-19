@@ -1,4 +1,4 @@
-const Card = ({titulo:titulo,url:url,descripcion:descripcion}) => {
+const Card = ({titulo,url,descripcion}) => {
     return(
         <>
             <div className="card" style={{width: '18rem'}}>
