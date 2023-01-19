@@ -23,12 +23,7 @@ const getDataByUrl=async(name,url)=>{
 }
 
 const handleFilter=(e)=>{
-  
-  setFindPokemon(e.target.value)
-  console.log(filtered)
-  console.log(e.target.value)
-
-
+  setFindPokemon(e.target.value);
  };
 
 
@@ -65,8 +60,8 @@ const handleFilter=(e)=>{
             }
             // a must be equal to b
             return 0;
-}).filter((elem)=>  elem.name.toLowerCase().includes(findPokemon.toLowerCase())).map((pokemonInfo)=>{
-            return <Card titulo={pokemonInfo.name} url={pokemonInfo.urlPhoto}/>
+}).filter((elem)=>  elem.name.toLowerCase().includes(findPokemon.toString().toLowerCase())).map((pokemonInfo)=>{
+            return <Card key={pokemonInfo.name} titulo={pokemonInfo.name} url={pokemonInfo.urlPhoto}/>
           })}
          
         </main>
@@ -77,5 +72,5 @@ const handleFilter=(e)=>{
   )
 }
 
-export default MiApi
+export default MiApi;
 
