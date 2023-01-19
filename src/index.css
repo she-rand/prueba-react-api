@@ -1,0 +1,35 @@
+.grid-container{
+  display:grid ;
+  grid-template-areas: 
+  "he he he he he he he"
+  "fi fi fi fi fi fi fi"
+  "ma ma ma ma ma ma ma"
+  "fo fo fo fo fo fo fo";
+  background-color: gainsboro;  
+  font-family: 'Roboto Condensed', sans-serif;
+}
+header{
+  grid-area: he;
+  background-color: black;
+  color: white;
+  height: 50px;
+  text-align: center;
+}
+.filter{
+  grid-area: fi;
+  background-color: white;
+  text-align: center;
+}
+main{
+  grid-area: ma;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 15px;
+}
+
+footer{
+  grid-area: fo;
+  background-color: white;
+  text-align: center;
+}
